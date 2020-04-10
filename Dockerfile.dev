@@ -1,0 +1,11 @@
+FROM node:alpine
+
+WORKDIR /usr/frontend-demo
+
+COPY ./package.json ./
+
+RUN npm install
+
+COPY ./ ./
+
+CMD ["yarn", "start"]
