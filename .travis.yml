@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run -e CI=true sushilkadu/frontend-demo npm run test
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "frontend-demo"
+  env: "FrontendDemo-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-073731903074"
+  bucket_path: "frontend-demo"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
