@@ -7,4 +7,5 @@ RUN ["yarn", "build"]
 
 
 FROM nginx
+EXPOSE 80
 COPY --from=builder /usr/frontend-demo/build /usr/share/nginx/html
